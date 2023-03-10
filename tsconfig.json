@@ -1,0 +1,32 @@
+{
+    "compilerOptions": {
+        "target": "esnext",
+        "module": "esnext",
+        "strict": true,
+        "declaration": true,
+        "declarationDir": "./temp",
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "importHelpers": false,
+        "moduleResolution": "node",
+        "importsNotUsedAsValues": "remove",
+        "experimentalDecorators": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "sourceMap": false,
+        "baseUrl": "./",
+        "newLine": "lf",
+        "resolveJsonModule": true,
+        "skipLibCheck": true,
+        "types": ["node", "vite/client"],
+        "lib": [
+            "esnext",
+            "dom",
+            "dom.iterable"
+        ]
+    },
+    "exclude": [
+        "node_modules",
+        "dist"
+    ]
+}
