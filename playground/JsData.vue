@@ -2,17 +2,11 @@
 import DataTable from '../src';
 import { db }  from '../playground/firebase';
 import { collection, getDocs } from "firebase/firestore";
-import { computed, onMounted } from 'vue';
+import { computed, onMounted  } from 'vue';
+import { setgroups } from 'process';
 
 
-	// const querySnapshot = await getDocs(collection(db, "appointments"));
-	// querySnapshot.forEach((doc) => {  
-	// console.log(doc.id, " => ", doc.data());
-	// });
-
-
-
-const data = [
+const dataRow = [
 {
 	"id": "1",
 	"name": "Tiger Nixon",
@@ -228,218 +222,14 @@ const data = [
 	"start_date": "2010/09/20",
 	"office": "Sydney",
 	"extn": "3023"
-},
-{
-	"id": "25",
-	"name": "Angelica Ramos",
-	"position": "Chief Executive Officer (CEO)",
-	"salary": "$1,200,000",
-	"start_date": "2009/10/09",
-	"office": "London",
-	"extn": "5797"
-},
-{
-	"id": "26",
-	"name": "Gavin Joyce",
-	"position": "Developer",
-	"salary": "$92,575",
-	"start_date": "2010/12/22",
-	"office": "Edinburgh",
-	"extn": "8822"
-},
-{
-	"id": "27",
-	"name": "Jennifer Chang",
-	"position": "Regional Director",
-	"salary": "$357,650",
-	"start_date": "2010/11/14",
-	"office": "Singapore",
-	"extn": "9239"
-},
-{
-	"id": "28",
-	"name": "Brenden Wagner",
-	"position": "Software Engineer",
-	"salary": "$206,850",
-	"start_date": "2011/06/07",
-	"office": "San Francisco",
-	"extn": "1314"
-},
-{
-	"id": "29",
-	"name": "Fiona Green",
-	"position": "Chief Operating Officer (COO)",
-	"salary": "$850,000",
-	"start_date": "2010/03/11",
-	"office": "San Francisco",
-	"extn": "2947"
-},
-{
-	"id": "30",
-	"name": "Shou Itou",
-	"position": "Regional Marketing",
-	"salary": "$163,000",
-	"start_date": "2011/08/14",
-	"office": "Tokyo",
-	"extn": "8899"
-},
-{
-	"id": "31",
-	"name": "Michelle House",
-	"position": "Integration Specialist",
-	"salary": "$95,400",
-	"start_date": "2011/06/02",
-	"office": "Sydney",
-	"extn": "2769"
-},
-{
-	"id": "32",
-	"name": "Suki Burks",
-	"position": "Developer",
-	"salary": "$114,500",
-	"start_date": "2009/10/22",
-	"office": "London",
-	"extn": "6832"
-},
-{
-	"id": "33",
-	"name": "Prescott Bartlett",
-	"position": "Technical Author",
-	"salary": "$145,000",
-	"start_date": "2011/05/07",
-	"office": "London",
-	"extn": "3606"
-},
-{
-	"id": "34",
-	"name": "Gavin Cortez",
-	"position": "Team Leader",
-	"salary": "$235,500",
-	"start_date": "2008/10/26",
-	"office": "San Francisco",
-	"extn": "2860"
-},
-{
-	"id": "35",
-	"name": "Martena Mccray",
-	"position": "Post-Sales support",
-	"salary": "$324,050",
-	"start_date": "2011/03/09",
-	"office": "Edinburgh",
-	"extn": "8240"
-},
-{
-	"id": "36",
-	"name": "Unity Butler",
-	"position": "Marketing Designer",
-	"salary": "$85,675",
-	"start_date": "2009/12/09",
-	"office": "San Francisco",
-	"extn": "5384"
-},
-{
-	"id": "37",
-	"name": "Howard Hatfield",
-	"position": "Office Manager",
-	"salary": "$164,500",
-	"start_date": "2008/12/16",
-	"office": "San Francisco",
-	"extn": "7031"
-},
-{
-	"id": "38",
-	"name": "Hope Fuentes",
-	"position": "Secretary",
-	"salary": "$109,850",
-	"start_date": "2010/02/12",
-	"office": "San Francisco",
-	"extn": "6318"
-},
-{
-	"id": "39",
-	"name": "Vivian Harrell",
-	"position": "Financial Controller",
-	"salary": "$452,500",
-	"start_date": "2009/02/14",
-	"office": "San Francisco",
-	"extn": "9422"
-},
-{
-	"id": "40",
-	"name": "Timothy Mooney",
-	"position": "Office Manager",
-	"salary": "$136,200",
-	"start_date": "2008/12/11",
-	"office": "London",
-	"extn": "7580"
-},
-{
-	"id": "41",
-	"name": "Jackson Bradshaw",
-	"position": "Director",
-	"salary": "$645,750",
-	"start_date": "2008/09/26",
-	"office": "New York",
-	"extn": "1042"
-},
-{
-	"id": "42",
-	"name": "Olivia Liang",
-	"position": "Support Engineer",
-	"salary": "$234,500",
-	"start_date": "2011/02/03",
-	"office": "Singapore",
-	"extn": "2120"
-},
-{
-	"id": "43",
-	"name": "Bruno Nash",
-	"position": "Software Engineer",
-	"salary": "$163,500",
-	"start_date": "2011/05/03",
-	"office": "London",
-	"extn": "6222"
-},
-{
-	"id": "44",
-	"name": "Sakura Yamamoto",
-	"position": "Support Engineer",
-	"salary": "$139,575",
-	"start_date": "2009/08/19",
-	"office": "Tokyo",
-	"extn": "9383"
-},
-{
-	"id": "45",
-	"name": "Thor Walton",
-	"position": "Developer",
-	"salary": "$98,540",
-	"start_date": "2013/08/11",
-	"office": "New York",
-	"extn": "8327"
-},
-{
-	"id": "46",
-	"name": "Finn Camacho",
-	"position": "Support Engineer",
-	"salary": "$87,500",
-	"start_date": "2009/07/07",
-	"office": "San Francisco",
-	"extn": "2927"
-},
-{
-	"id": "47",
-	"name": "Serge Baldwin",
-	"position": "Data Coordinator",
-	"salary": "$138,575",
-	"start_date": "2012/04/09",
-	"office": "Singapore",
-	"extn": "8352"
 }
+
 
 ];
 
-const columns = [
+
+
+const columnsVert = [
 	{ data: 'name' },
 	{ data: 'position' },
 	{ data: 'office' },
@@ -447,13 +237,23 @@ const columns = [
 	{ data: 'start_date' },
 	{ data: 'salary' },
 ]
+
+
+	const querySnapshot = await getDocs(collection(db, "appointments"));
+	querySnapshot.forEach((doc) => {  
+	let appointments = []
+	appointments.push(doc.data());	
+	console.log(doc.id, " => ", doc.data());
+	console.log(appointments)
+	
+	});
 </script>
 
 <template>
   <div>
     <h2>Data from calldoctor.co.kr</h2>
     <p>마트의원 비대면 접수 신청 리스트...</p>
-    <DataTable class="display" :options="{data: data}" :columns="columns">
+    <DataTable class="display" :options="{data: dataRow}" :columns="columnsVert">
       <thead>
           <tr>
               <th>Name</th>
@@ -464,7 +264,7 @@ const columns = [
               <th>Salary</th>
           </tr>
       </thead>
-      <tfoot>
+      <!-- <tfoot>
           <tr>
               <th>Name</th>
               <th>Position</th>
@@ -473,7 +273,7 @@ const columns = [
               <th>Start date</th>
               <th>Salary</th>
           </tr>
-      </tfoot>
+      </tfoot> -->
     </DataTable>
   </div>
 </template>
